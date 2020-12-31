@@ -1,7 +1,6 @@
 (ns app.server-components.middleware
   (:require
     [app.server-components.config :refer [config]]
-    [app.server-components.pathom :refer [parser]]
     [mount.core :refer [defstate]]
     [com.fulcrologic.fulcro.server.api-middleware :refer [handle-api-request
                                                           wrap-transit-params
@@ -20,13 +19,7 @@
      :body    "NOPE"}))
 
 
-(defn wrap-api [handler uri]
-  (fn [request]
-    (if (= uri (:uri request))
-      (handle-api-request
-        (:transit-params request)
-        (fn [tx] (parser {:ring/request request} tx)))
-      (handler request))))
+
 
 ;; ================================================================================
 ;; Dynamically generated HTML. We do this so we can safely embed the CSRF token
@@ -89,7 +82,6 @@
   (let [defaults-config (:ring.middleware/defaults-config config)
         legal-origins   (get config :legal-origins #{"localhost"})]
     (-> not-found-handler
-      (wrap-api "/api")
       wrap-transit-params
       wrap-transit-response
       (wrap-html-routes)
