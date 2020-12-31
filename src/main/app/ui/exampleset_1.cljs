@@ -30,7 +30,7 @@
 
 
 ;; comment/un-comment the following line to enable section 1
-#_#_#_
+;#_#_#_
     (defsc Person [this {:keys [:person/id
                                   :person/name
                                   :person/age] :as props}]
@@ -113,7 +113,7 @@
 
 
 
-;#_#_#_#_#_
+#_#_#_#_#_
 (defsc Person [this {:keys [:person/id
                             :person/name
                             :person/age] :as props}]
