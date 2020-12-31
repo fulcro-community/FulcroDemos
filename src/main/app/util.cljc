@@ -1,7 +1,16 @@
 (ns app.util
   #?(:cljs (:refer-clojure :exclude [uuid]))
   (:require [com.fulcrologic.guardrails.core :refer [>defn]]
-            [clojure.spec.alpha :as s]))
+            [clojure.spec.alpha :as s]
+            [zprint.core :as zp]))
+
+
+(defn zpstr
+  ([x]
+   (zp/zprint-str x 60 {:map {:lift-ns? false}}))
+  ([x opts]
+   ([x]
+    (zp/zprint-str x 60 (assoc-in opts [:map :lift-ns?] false)))))
 
 (>defn uuid
   "Generate a UUID the same way via clj/cljs.  Without args gives random UUID. With args, builds UUID based on input (which

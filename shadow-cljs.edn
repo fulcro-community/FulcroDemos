@@ -11,7 +11,9 @@
                                     {:external-config {:guardrails {}}}}
 
                        :devtools   {:after-load app.client/refresh
-                                    :preloads   [com.fulcrologic.fulcro.inspect.preload app.development-preload]}}
+                                    :preloads   [com.fulcrologic.fulcro.inspect.preload
+                                                 app.development-preload
+                                                 com.fulcrologic.fulcro.inspect.dom-picker-preload]}}
 
           :test       {:target           :browser-test
                        :test-dir         "resources/public/js/test"

@@ -10,10 +10,21 @@
     [com.fulcrologic.fulcro.mutations :as m :refer [defmutation]]
     [com.fulcrologic.fulcro.algorithms.merge :as merge]
     [com.fulcrologic.fulcro.algorithms.form-state :as fs]
-    [taoensso.timbre :as log]))
+    [taoensso.timbre :as log]
+    [app.ui.exampleset-1 :as eg1]))
 
 
-(defsc Root [this {:root/keys []}]
-  {:query         [:root/top-chrome]
-   :initial-state {:root/top-chrome {}}}
-  (dom/div "hello"))
+
+
+
+
+
+
+
+
+
+
+; Root for exampleset 1
+
+(def Root eg1/Root)
+

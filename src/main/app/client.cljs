@@ -23,15 +23,4 @@
   
 
   (reset! (::app/state-atom SPA) {})
-
-  
-  
-  (app/current-state SPA)
-  
-  
-  
-  
-
-  
-  
-  )
+  (app/current-state SPA))
