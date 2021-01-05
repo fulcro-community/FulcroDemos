@@ -8,39 +8,27 @@ ifdef::env-github[]
 endif::[]
 
 
-There are 3 parts to get the project up and running for you to see. First, the clj server for the index.html, second,
-the Shadow CLJS server, and third, the CLJS repl. Setup for each:
+There are 2 parts to get the project workspaces up and running for you to see. First, the Shadow CLJS server, and second, 
+the CLJS repl. Setup for each:
 
 
 ```Shell
 npm install
 
 
-# 1.
-clj -A:dev
-
-# user=> (start)
-# ... 
-# ... Server started at localhost:3000
-
-
-# 2.  (there are several ways to run this, but I find this easiest)
-npx shadow-cljs watch :main
+# 1.  (there are several ways to run this, but I find this easiest)
+npx shadow-cljs watch :workspaces
 
 # ... shadow server at localhost:9630
 # ... shadow repl at localhost:9000
 
 
-# 3.
+# 2.
 # Connect via nrepl to localhost:9000
-# You are now in the main Shadow CLJS compiler environment. Run `(shadow/repl :main)` and 
+# You are now in the main Shadow CLJS compiler environment. Run `(shadow/repl :workspaces)` and 
 # shadow will change the nrepl session to a direct connection to the browser.
 ```
 
 If you are running IntelliJ, you should see pre-built configurations in the run menu. 
 
 
-
-
-git clone --depth 1 -o fulcro-template https://github.com/fulcrologic/fulcro-template.git fulcro-app
-cd fulcro-app
