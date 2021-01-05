@@ -20,11 +20,6 @@
   )
 
 
-;; how to capture fulcro-app from fulcro-card
-; ct.fulcro/fulcro-card ->
-;  {:wsm/init (fn [...] {::ct.fulcro/app fulcro-app ...})}
-
-
 
 
 (defsc Demo [this {:keys [:demo/counter] :as props}]
