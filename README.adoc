@@ -1,4 +1,4 @@
-== The Project
+== Fulcro Demos
 ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
@@ -7,40 +7,16 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
+Small demos of how to do various things in Fulcro, leveraging https://github.com/awkay/workspaces[Workspaces] for running all the demo applications.
 
-There are 3 parts to get the project up and running for you to see. First, the clj server for the index.html, second,
-the Shadow CLJS server, and third, the CLJS repl. Setup for each:
+Demos that need a backend use in-browser Pathom (similarly to https://github.com/holyjak/minimalist-fulcro-template-backendless[minimalist-fulcro-template-backendless]).
 
+=== Usage
 
-```Shell
-npm install
+Run `yarn install` and then either `yarn run it` or directly `npx shadow-cljs watch :workspaces`.
 
+Then navigate to http://localhost:9001 and enjoy. This opens the Workspaces UI, which displays all the available "cards" (i.e. demo applications). Just click on one to display it. You can also maximize it via its ⠇ menu -> _Solo_, see its source from there etc. Use the _[Inspector]_ button to open Fulcro Inspect focused on that app.
 
-# 1.
-clj -A:dev
+=== Contributing
 
-# user=> (start)
-# ... 
-# ... Server started at localhost:3000
-
-
-# 2.  (there are several ways to run this, but I find this easiest)
-npx shadow-cljs watch :main
-
-# ... shadow server at localhost:9630
-# ... shadow repl at localhost:9000
-
-
-# 3.
-# Connect via nrepl to localhost:9000
-# You are now in the main Shadow CLJS compiler environment. Run `(shadow/repl :main)` and 
-# shadow will change the nrepl session to a direct connection to the browser.
-```
-
-If you are running IntelliJ, you should see pre-built configurations in the run menu. 
-
-
-
-
-git clone --depth 1 -o fulcro-template https://github.com/fulcrologic/fulcro-template.git fulcro-app
-cd fulcro-app
+Simply add a new `src/examples/<whatever>_cards.cljs` with your content.

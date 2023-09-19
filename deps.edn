@@ -1,36 +1,6 @@
-{:paths   ["src/main" "resources"]
-
- :deps    {org.clojure/clojure                 {:mvn/version "1.10.1"}
-           bidi                                {:mvn/version "2.1.6"}
-           bk/ring-gzip                        {:mvn/version "0.3.0"}
-           com.taoensso/timbre                 {:mvn/version "4.10.0"}
-           com.taoensso/tufte                  {:mvn/version "2.1.0-RC4"}
-           com.wsscode/pathom                  {:mvn/version "2.2.26"}
-           com.fulcrologic/fulcro              {:mvn/version "3.4.10"}
-           com.fulcrologic/semantic-ui-wrapper {:mvn/version "1.0.0"}
-           com.fulcrologic/guardrails          {:mvn/version "1.1.1"}
-           http-kit                            {:mvn/version "2.3.0"}
-           mount                               {:mvn/version "0.1.12"}
-
-
-           expound/expound                     {:mvn/version "0.8.7"}
-
-
-           ring/ring-core                      {:mvn/version "1.7.1"}
-           ring/ring-defaults                  {:mvn/version "0.3.2"}}
-
- :aliases {:clj-tests {:extra-paths ["src/test"]
-                       :main-opts   ["-m" "kaocha.runner"]
-                       :extra-deps  {lambdaisland/kaocha {:mvn/version "0.0-529"}}}
-
-           ;; See https://github.com/clojure-emacs/cider-nrepl/blob/master/deps.edn for Emacs support
-           :dev       {:extra-paths ["src/test" "src/dev" "src/workspaces"]
-                       :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"]
-                       :extra-deps  {org.clojure/clojurescript   {:mvn/version "1.10.773"}
-                                     thheller/shadow-cljs        {:mvn/version "2.11.10"}
-                                     expound/expound             {:mvn/version "0.8.7"}
-                                     zprint                      {:mvn/version "0.5.3"}
-                                     fulcrologic/fulcro-spec     {:mvn/version "3.1.4"}
-                                     binaryage/devtools          {:mvn/version "1.0.2"}
-                                     com.github.awkay/workspaces {:mvn/version "1.0.2"},
-                                     org.clojure/tools.namespace {:mvn/version "1.1.0"}}}}}
+{:deps {com.fulcrologic/fulcro            {:mvn/version "3.6.6"}
+        com.github.awkay/workspaces       {:mvn/version "1.0.3"}
+        thheller/shadow-cljs              {:mvn/version "2.24.0"}
+        binaryage/devtools                {:mvn/version "1.0.6"}
+        com.wsscode/pathom3               {:mvn/version "2023.01.31-alpha"}}
+ :paths ["src"]}

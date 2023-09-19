@@ -1,41 +1,9 @@
-{:deps   {:aliases [:dev]}
- :nrepl  {:port 9000}
- :builds {:main       {:target     :browser
-                       :output-dir "resources/public/js/main"
-                       :asset-path "/js/main"
-
-                       :modules    {:main {:init-fn app.client/init
-                                           :entries [app.client]}}
-                       ;; guardrails checks only during dev
-                       :dev        {:compiler-options
-                                    {:external-config {:guardrails {}}}}
-
-                       :devtools   {:after-load app.client/refresh
-                                    :preloads   [com.fulcrologic.fulcro.inspect.preload
-                                                 app.development-preload
-                                                 com.fulcrologic.fulcro.inspect.dom-picker-preload]}}
-
-          :test       {:target           :browser-test
-                       :test-dir         "resources/public/js/test"
-                       :ns-regexp        "-test$"
-                       ;; static required for mocking to work
-                       :compiler-options {:static-fns      false
-                                          :external-config {:guardrails {}}}
-                       :devtools         {:http-port          8022
-                                          :http-resource-root "public"
-                                          :http-root          "resources/public/js/test"}}
-
-          :ci-tests   {:target           :karma
-                       :js-options       {:js-provider :shadow}
-                       :compiler-options {:static-fns false} ; required for mocking to work
-                       :output-to        "target/ci.js"
-                       :ns-regexp        "-test$"}
-
-          :workspaces {:target     nubank.workspaces.shadow-cljs.target
-                       :ns-regexp  "-(test|ws)$"
-                       :output-dir "resources/public/workspaces/js"
-                       :asset-path "/workspaces/js"
-                       :devtools   {:preloads           [com.fulcrologic.fulcro.inspect.preload]
-                                    :http-root          "resources/public/workspaces"
-                                    :http-port          8023
-                                    :http-resource-root "."}}}}
+{:deps true
+ :dev-http {9001 "resources/public"}
+ :builds   {:workspaces {:target           nubank.workspaces.shadow-cljs.target
+                         :ns-regexp        "-cards$"
+                         :output-dir       "resources/public/js/workspaces"
+                         :asset-path       "/js/workspaces"
+                         :compiler-options {:external-config {:fulcro {:html-source-annotations? true}}}
+                         :preloads         [com.fulcrologic.fulcro.inspect.preload
+                                            com.fulcrologic.fulcro.inspect.dom-picker-preload]}}}

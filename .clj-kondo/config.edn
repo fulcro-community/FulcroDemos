@@ -1,0 +1,6 @@
+{:lint-as {nubank.workspaces.core/defcard clojure.core/def}
+ :config-paths ["com.fulcrologic/fulcro" 
+                "com.fulcrologic/guardrails"
+                "com.wsscode/pathom3"
+                "funcool/promesa"
+                "taoensso/encore"]}
