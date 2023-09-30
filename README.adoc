@@ -11,9 +11,25 @@ Small demos of how to do various things in Fulcro, leveraging https://github.com
 
 Demos that need a backend use in-browser Pathom (similarly to https://github.com/holyjak/minimalist-fulcro-template-backendless[minimalist-fulcro-template-backendless]).
 
+=== Available Examples
+
+==== trivial-cards (by jarrett)
+
+A demo of the simplest possible frontend-only, stateful app - a click counter.
+
+==== data-view-cards a.k.a. pivot table (by Tony Kay)
+
+Topics: performance, derived data, `transact!!`
+
+We want to show a list of apartments, with their various properties, in an editable table. The catch is that we want to show each apartment as a column, not a row. Also, there could be potentially very many attributes, and we want to make sure that we re-render only what changed and not everything, when an apartment attribute is modified. (In this case it is a premature optimization - the table is too small to matter. We do it just for demonstration purposes. In practice, measure before you optimize. The performance of the common approach is surprising good and sufficient in all but the most extreme cases.)
+
+The solution is to define a query-only Apartment component for fetching the data, and then "pivoting" the data into a column-based table in a post-mutation, and storing the result under the Table in the client DB. For the performance, we use the synchronous `transact!!` when we edit a cell in the table, so that only that one cell is re-rendered. Each cell has a `:target` property pointing to the apartment, so the raw data is only stored in the `:apartment/id` table. Look at the data using Fulcro Inspect, and explore the code. 
+
+Also noteworthy: While idents are normally `[<kwd> <id: a primitive value>]`, they don't need to - the id part may be more complex. We leverage it here to encode in each Cell's ident both the apartment and the attribute it displays. Have a look at the namespace docstring for more details.
+
 === Usage
 
-Run `yarn install` and then either `yarn run it` or directly `npx shadow-cljs watch :workspaces`.
+Run `yarn install` and then either `yarn run it`, `bb watch`, or directly `npx shadow-cljs watch :workspaces`.
 
 Then navigate to http://localhost:9001 and enjoy. This opens the Workspaces UI, which displays all the available "cards" (i.e. demo applications). Just click on one to display it. You can also maximize it via its ⠇ menu -> _Solo_, see its source from there etc. Use the _[Inspector]_ button to open Fulcro Inspect focused on that app.
 

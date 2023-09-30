@@ -1,5 +1,6 @@
 (ns examples.trivial-cards
   "A very simple Fulcro application"
+  {:author "jarrett"}
   (:require
    [com.fulcrologic.fulcro.dom :as dom]
    [com.fulcrologic.fulcro.components :as comp :refer [defsc]]

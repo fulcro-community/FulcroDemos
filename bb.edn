@@ -1,0 +1,2 @@
+{:tasks
+ {watch (clojure "-M:shadow-cli watch workspaces")}}
